@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Block UI</title>
+	<meta name="author" content="Hasan Ablak">
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.centered-div {
+			width: 200px;
+			height: 200px;
+			background-color: #4CAF50;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 20px;
+			flex-direction: column;
+		}
+
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: rgb(239, 132, 97);
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="centered-div">
+		<div>
+			<button id="lock-button">Lock me</button>
+			<button id="unlock-button">Unlock me</button>
+		</div>
+
+		<div class="box" id="box">
+			Test 123
+		</div>
+	</div>
+
+
+
+	<script src="./block-ui.js"></script>
+
+	<script>
+		const lockButton = document.querySelector("#lock-button");
+		const unlockButton = document.querySelector("#unlock-button");
+		const box = document.querySelector("#box")
+
+
+		lockButton.addEventListener("click", function () {
+			box.off();
+			setTimeout(() => {
+				box.on();
+			}, 1000);
+		})
+
+		unlockButton.addEventListener("click", function () {
+			box.on();
+		})
+	</script>
+</body>
+
+</html>
